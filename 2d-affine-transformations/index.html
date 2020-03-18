@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="gl-matrix-min.js"></script>
+        <title>Roger Ngo - Demo for 2D Affine Transformation</title>
+        <style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            }
+            canvas {
+                border: 1px dotted rgb(128, 128, 128);
+            }
+
+            div {
+                margin: 16px;
+            }
+
+            textarea {
+                width: 480px;
+                height: 240px;
+            }
+
+            button {
+                border-radius: 2px;
+                background-color: rgb(0, 128, 240);
+                color: rgb(255, 255, 255);
+                box-shadow: 0;
+                border: 0;
+                padding: 8px;
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            }
+
+            button:hover {
+                background-color: rgb(0, 96, 220);
+                cursor: pointer;
+            }
+
+            #btn-reset {
+                background-color: rgb(200, 0, 50);
+            }
+
+            #btn-reset:hover {
+                background-color: rgb(255, 0, 64);
+            }
+
+            table {
+                margin-bottom: 8px;
+            }
+
+            input {
+                width: 72px;
+                height: 32px;
+                padding: 4px;
+                font-size: large;
+            }
+
+            #points-list {
+                font-size: small;
+            }
+        </style>
+    </head>
+    <body>
+        <div>
+            <div>
+                <h3>Affine Transformation Demo</h3>
+                <button id="btn-reload">Reload</button>
+                <p>
+                    This is a demo to visualize 2D affine transformations. You can visualize transformation matrices being
+                    applied onto a set of points. 
+                </p>
+                <p>
+                    Each grid cell is <strong>0.1 units</strong>. So, the cartesian plane
+                    ranges from <strong>[-0.5, 0.5]</strong> on both axes.
+                </p>
+            </div>
+            <div id="points-list"></div>
+            <div>
+                <canvas id="model"></canvas>
+            </div>
+            <div>
+                <strong>Transformation Matrix</strong>
+                <table>
+                    <tr>
+                        <td><input id="m00" type="text" value="1" /></td>
+                        <td><input id="m10" type="text" value="0" /></td>
+                        <td><input id="m20" type="text" value="0" /></td>
+                    </tr>
+                    <tr>
+                        <td><input id="m01" type="text" value="0" /></td>
+                        <td><input id="m11" type="text" value="1" /></td>
+                        <td><input id="m21" type="text" value="0" /></td>
+                    </tr>
+                    <tr>
+                        <td><input id="m02" type="text" value="0" /></td>
+                        <td><input id="m12" type="text" value="0" /></td>
+                        <td><input id="m22" type="text" value="1" /></td>
+                    </tr>
+                </table>
+                <button id="btn-reset">Reset</button>
+            </div>
+            <div id="transformation-stack"></div>
+            <div>
+                <button id="btn-stack">Add Transformation</button>
+                <button id="btn-transform">Apply Transformations</button>
+            </div>
+            <div>
+                <textarea id="log"></textarea>
+            </div>
+        </div>
+        <hr/>
+        Roger Ngo. <a href="http://rogerngo.com">rogerngo.com</a>
+        <script src="demo.js"></script>
+    </body>
+</html>
