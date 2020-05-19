@@ -34,8 +34,8 @@ function hermite(p0, p1, pp0, pp1, t) {
     glMatrix.mat4.multiply(r_y, r_y, T);
 
     return {
-        x: r_x[0] / 10,
-        y: r_y[0] / 10
+        x: r_x[0],
+        y: r_y[0]
     };
 }
 
@@ -43,8 +43,8 @@ const AppState = {
     canvas: {
         ref: null,
         resolution: 40,
-        width: 500,
-        height: 500,
+        width: 400,
+        height: 400,
         grid: {
             lines: '#abcabc',
             axes: '#000000',
@@ -70,6 +70,10 @@ function plot(p0, p1, pp0, pp1) {
 
 
 const plotButton = document.getElementById('btn-plot');
+const inputs = Array.from(document.getElementsByTagName('input'));
+inputs.map(i => i.addEventListener('change', function() {
+    plotButton.click();
+}));
 plotButton.addEventListener('click', function() {
     const p0x = document.getElementById('input-p0-x').value;
     const p0y = document.getElementById('input-p0-y').value;
@@ -90,3 +94,5 @@ plotButton.addEventListener('click', function() {
         {x: pp1x, y: pp1y}
     );
 });
+
+plotButton.click();

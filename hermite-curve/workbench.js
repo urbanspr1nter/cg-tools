@@ -33,7 +33,7 @@ class Workbench2D {
         AppState.canvas.ref = canvas;
     
         const context = AppState.canvas.ref.getContext('2d');
-    
+
         AppState.canvas.ref.width = AppState.canvas.width;
         AppState.canvas.ref.height = AppState.canvas.height;
     

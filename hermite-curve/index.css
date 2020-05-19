@@ -26,3 +26,11 @@ h3 {
 .control {
     margin-top: 8px;
 }
+
+.column {
+    margin-right: 32px;
+}
+
+.outer {
+    max-width: 75%;
+}
