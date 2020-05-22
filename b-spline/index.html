@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="gl-matrix-min.js"></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.2/css/bulma.min.css">
+        <link rel="stylesheet" type="text/css" href="index.css" />
+        <title>Graphics Workbench</title>
+    </head>
+    <body>
+        <div class="container outer">
+            <h3 class="title is-3">B-Spline Demo</h3>
+            <div class="container">
+                Add a point to plot a B-Spline segment
+                <br/><br/>
+                <ul type="">
+                    <li>The resolution of this canvas is a 40 x 40 grid</li>
+                    <li>Each cell is 0.05 units.</li>
+                    <li>Each axis ranges from <strong>[-1.0, 1.0]</strong>.</li>
+                </ul>
+                <br/>
+            </div>
+            <div class="columns">
+                <div class="column is-one-half">
+                    <div class="row">
+                        <div class="control">
+                            <label class="label">P.x</label>
+                            <input id="input-p-x" class="input" type="number" step="0.05" max="1.0" min="-1.0" value="0"/>
+                        </div>
+                        <div class="control">
+                            <label class="label">P.y</label>
+                            <input id="input-p-y" class="input" type="number" step="0.05" max="1.0" min="-1.0" value="0"/>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="control">
+                            <button class="button is-info" type="button" id="btn-add">Add</button>
+                            <button class="button is-info" type="button" id="btn-hide-control-data">Hide Control Data</button>
+                            <button class="button is-warning" type="button" id="btn-reset">Reset</button>
+                        </div>
+                    </div>
+                </div>  
+                <div class="column is-one-half">
+                    <canvas id="workbench"></canvas>
+                    <div class="row">
+                        <label id="points"></label>
+                    </div>
+                </div>          
+            </div>
+        </div>
+
+        <script src="workbench.js"></script>
+        <script src="index.js"></script>
+    </body>
+</html>
